@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :publisher do
     name "MyString"
-location "MyText"
+    location "MyText"
   end
-
 end
