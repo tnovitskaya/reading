@@ -4,5 +4,4 @@ FactoryGirl.define do
     last_name "MyString"
     biography "MyText"
   end
-
 end
