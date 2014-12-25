@@ -11,34 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223113827) do
+ActiveRecord::Schema.define(version: 20141225214017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "authors", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "biography"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.text   "biography"
   end
 
   create_table "book_and_author_links", force: true do |t|
-    t.integer  "book_id"
-    t.integer  "author_id"
-    t.string   "role"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "book_id"
+    t.integer "author_id"
+    t.string  "role"
   end
 
   create_table "books", force: true do |t|
-    t.integer  "publisher_id"
-    t.string   "name"
-    t.string   "genre"
-    t.integer  "page_count"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "publisher_id"
+    t.string  "name"
+    t.string  "genre"
+    t.integer "page_count"
   end
 
   create_table "comments", force: true do |t|
@@ -60,10 +54,8 @@ ActiveRecord::Schema.define(version: 20141223113827) do
   end
 
   create_table "publishers", force: true do |t|
-    t.string   "name"
-    t.text     "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+    t.text   "location"
   end
 
   create_table "users", force: true do |t|
