@@ -12,4 +12,5 @@ script:
   - bundle exec rake db:test:prepare
   - bundle exec rspec
 before_script:
+  - cp config/database.yml.sample config/database.yml
   - psql -c 'create database reading_test;' -U postgres
