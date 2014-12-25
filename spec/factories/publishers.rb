@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :publisher do
-    name "MyString"
-    location "MyText"
+    name { Faker::Company.name }
+    location { Faker::Address.city }
   end
 end

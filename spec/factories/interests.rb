@@ -1,7 +1,9 @@
 FactoryGirl.define do
   factory :interest do
-    review "MyText"
-    start_reading "2014-12-23 13:11:21"
-    finish_reading "2014-12-23 13:11:21"
+    review { Faker::Lorem.paragraph }
+    start_reading { Faker::Time.between(100.days.ago, 10.days.ago) }
+    finish_reading { Faker::Time.between(10.days.ago, Time.now) }
+    association :user
+    association :book
   end
 end
