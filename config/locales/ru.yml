@@ -1,0 +1,31 @@
+ru:
+  page_names:
+    login: "Вход"
+    sign_up: "Регистрация"
+    forgot_your_password?: "Забыли пароль?"
+    change_your_password: "Изменить пароль"
+    edit: "редактировать"
+    resend_confirmation_instructions: "Повторное письмо с подтверждением"
+  forms:
+    buttons:
+      login: "Войти"
+      sign_up: "Зарегистрироваться"
+      send_me_reset_password_instructions: "отправить инструкции по восстановлению пароля"
+      change_my_password: "Изменить пароль"
+      resend_confirmation_instructions: "Отправить повторное письмо с подтверждением"
+    prompt:
+      characters_minimum: "символов минимум"
+    links:
+      sign_in: "Войти"
+      sign_up: "Зарегистрироваться"
+      forgot_your_password?: "Забыли пароль?"
+      did_not_receive_confirmation_instructions?: "Не получили письмо с инструкциями?"
+      did_not_receive_unlock_instructions?: "Не получили инструкции разблокировки?"
+
+  activerecord:
+    attributes:
+      user:
+        email: "Email"
+        password: "Пароль"
+        remember_me: "Запомнить меня"
+        password_confirmation: "Повторить пароль"
