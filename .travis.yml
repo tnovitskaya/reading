@@ -1,16 +1,23 @@
 language: ruby
 rvm: 2.1.4
-env:
-  DB=postgresql
+env: DB=postgresql
 branches:
   only:
-    - master
-    - dev
-    - feature/travis
+  - master
+  - dev
+  - feature/travis
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec
+- RAILS_ENV=test bundle exec rake --trace db:migrate
+- bundle exec rake db:test:prepare
+- bundle exec rspec
 before_script:
-  - cp config/database.yml.sample config/database.yml
-  - psql -c 'create database reading_test;' -U postgres
+- cp config/database.yml.sample config/database.yml
+- psql -c 'create database reading_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: bYpMkdpzFPwhjFOEZQcAckB9OjOZpEyr7P1MO5+kJd7OJkzsJABy8zDqajMiF8sfj0yAwUoJJP30m4TqTja6xg5pIgTLcqSWoYsKkXa73a9WTu4XwUQ3P1UyraK/V+3KhPbRYVyB6J4vSF2J7b1kOyI15LGfszTudUuFWtvfXk8=
+  app:
+    master: reading-master
+    dev: reading-dev
+  run: rake db_migrate
