@@ -29,3 +29,10 @@ ru:
         password: "Пароль"
         remember_me: "Запомнить меня"
         password_confirmation: "Повторить пароль"
+
+  index:
+    welcome_h1: "Добро пожаловать на Reading"
+    welcome_p: "Сообщество любителей провести вечер за чтением книги"
+    new_books: "Новые книги"
+    new_interests: "Свежие рецензии"
+    new_comments: "Последние обсуждения"
