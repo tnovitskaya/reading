@@ -20,4 +20,4 @@ deploy:
   app:
     master: reading-master
     dev: reading-dev
-  run: rake db_migrate
+  run: rake db:migrate
