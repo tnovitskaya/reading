@@ -18,7 +18,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.action_mailer.default_url_options = { host: 'shrouded-wave-1709.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'reading-dev.herokuapp.com' }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
