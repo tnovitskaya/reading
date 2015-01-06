@@ -19,11 +19,9 @@ BookAndAuthorLink.create({book: book2, author: author1, role: :author})
 BookAndAuthorLink.create({book: book1, author: author2, role: :editor})
 
 user1 = User.new({email: "andrew@example.com", first_name: "Andrew", last_name: "Lelechenko", password: "Password", password_confirmation: "Password"})
-user1.skip_confirmation!
 user1.save!
 
 user2 = User.new({email: "tatiana@example.com", first_name: "Tatiana", last_name: "Novitskaya", password: "Password", password_confirmation: "Password"})
-user2.skip_confirmation!
 user2.save!
 
 interest1 = Interest.create({user: user1, book: book1, review: "Good book!", finish_reading: Time.now})
