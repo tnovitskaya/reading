@@ -4,23 +4,29 @@ ru:
     sign_up: "Регистрация"
     forgot_your_password?: "Забыли пароль?"
     change_your_password: "Изменить пароль"
-    edit: "редактировать"
+    edit: "Редактировать аккаунт"
     resend_confirmation_instructions: "Повторное письмо с подтверждением"
+    cancel_my_account: "Удалить мой аккаунт"
   forms:
     buttons:
       login: "Войти"
       sign_up: "Зарегистрироваться"
+      update: "Обновить"
       send_me_reset_password_instructions: "отправить инструкции по восстановлению пароля"
       change_my_password: "Изменить пароль"
       resend_confirmation_instructions: "Отправить повторное письмо с подтверждением"
+      cancel_my_account: "Удалить мой аккаунт"
     prompt:
       characters_minimum: "символов минимум"
+      leave_blank_if_you_dont_want_to_change_it: "(оставьте пустым, если вы не хотите изменять его)"
+      we_need_your_current_password_to_confirm_your_changes: "(введите ваш текущий пароль для подтверждения изменений)"
     links:
       sign_in: "Войти"
       sign_up: "Зарегистрироваться"
       forgot_your_password?: "Забыли пароль?"
       did_not_receive_confirmation_instructions?: "Не получили письмо с инструкциями?"
       did_not_receive_unlock_instructions?: "Не получили инструкции разблокировки?"
+      back: "Назад"
 
   activerecord:
     attributes:
@@ -29,6 +35,7 @@ ru:
         password: "Пароль"
         remember_me: "Запомнить меня"
         password_confirmation: "Повторить пароль"
+        current_password: "Текущий пароль"
 
   index:
     welcome_h1: "Добро пожаловать на Reading"
