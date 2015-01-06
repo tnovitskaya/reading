@@ -36,6 +36,8 @@ ru:
         remember_me: "Запомнить меня"
         password_confirmation: "Повторить пароль"
         current_password: "Текущий пароль"
+        first_name: "Имя"
+        last_name: "Фамилия"
 
   index:
     welcome_h1: "Добро пожаловать на Reading"
