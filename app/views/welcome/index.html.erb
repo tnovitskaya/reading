@@ -8,10 +8,12 @@
     <%= I18n.t('index.welcome_p') %>
   </p>
 
-  <p>
-    <%= link_to I18n.t('forms.links.sign_up'), new_user_registration_path, :class => "btn btn-primary btn-lg" %>
-    <%= link_to I18n.t('forms.links.sign_in'), new_user_session_path, :class => "btn btn-primary btn-lg" %>
-  </p>
+  <% if !user_signed_in? %>
+    <p>
+      <%= link_to I18n.t('forms.links.sign_up'), new_user_registration_path, :class => "btn btn-primary btn-lg" %>
+      <%= link_to I18n.t('forms.links.sign_in'), new_user_session_path, :class => "btn btn-primary btn-lg" %>
+    </p>
+  <% end %>
 
 </div>
 

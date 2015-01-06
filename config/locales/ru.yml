@@ -16,6 +16,7 @@ ru:
       change_my_password: "Изменить пароль"
       resend_confirmation_instructions: "Отправить повторное письмо с подтверждением"
       cancel_my_account: "Удалить мой аккаунт"
+      sign_out: "Выйти"
     prompt:
       characters_minimum: "символов минимум"
       leave_blank_if_you_dont_want_to_change_it: "(оставьте пустым, если вы не хотите изменять его)"
@@ -23,6 +24,8 @@ ru:
     links:
       sign_in: "Войти"
       sign_up: "Зарегистрироваться"
+      signed_as: "Вы вошли как"
+      edit_profile: "Профиль"
       forgot_your_password?: "Забыли пароль?"
       did_not_receive_confirmation_instructions?: "Не получили письмо с инструкциями?"
       did_not_receive_unlock_instructions?: "Не получили инструкции разблокировки?"
@@ -36,6 +39,17 @@ ru:
         remember_me: "Запомнить меня"
         password_confirmation: "Повторить пароль"
         current_password: "Текущий пароль"
+        first_name: "Имя"
+        last_name: "Фамилия"
+      book:
+        name: "Название"
+        authors: "Авторы"
+        author_ids: "Авторы"
+        author_short: "Автор"
+        genre: "Жанр"
+        publisher: "Издательство"
+        publisher_id: "Издательство"
+        page_count: "Количество страниц"
 
   index:
     welcome_h1: "Добро пожаловать на Reading"
@@ -43,3 +57,20 @@ ru:
     new_books: "Новые книги"
     new_interests: "Свежие рецензии"
     new_comments: "Последние обсуждения"
+
+  book:
+    new: "Добавить книгу"
+    new_action: "Добавить"
+    select_authors_title: "Укажите авторов"
+    select_publisher_title: "Укажите издательство"
+    new_author: "Новый автор?"
+    new_publisher: "Новое издательство?"
+    show: "Информация о книге"
+    show_action: "Просмотреть"
+    drop_action: "Удалить"
+    drop_confirm: "Уверены, что хотите удалить книгу безвозвратно?"
+    link_to_index: "Вернуться к общему списку книг"
+    interests: "Рецензии"
+    new_interest: "Новая рецензия?"
+    edit: "Редактировать книгу"
+    edit_action: "Редактировать"
