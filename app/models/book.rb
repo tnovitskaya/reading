@@ -5,5 +5,10 @@ class Book < ActiveRecord::Base
   has_many   :users, through: :interests
   has_many   :book_and_author_links, dependent: :destroy
   has_many   :authors, through: :book_and_author_links
-  
+
+  def author_short
+    author = self.authors.first
+    "#{author.first_name.first}. #{author.last_name}"
+  end
+
 end
