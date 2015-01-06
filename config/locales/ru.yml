@@ -16,6 +16,7 @@ ru:
       change_my_password: "Изменить пароль"
       resend_confirmation_instructions: "Отправить повторное письмо с подтверждением"
       cancel_my_account: "Удалить мой аккаунт"
+      sign_out: "Выйти"
     prompt:
       characters_minimum: "символов минимум"
       leave_blank_if_you_dont_want_to_change_it: "(оставьте пустым, если вы не хотите изменять его)"
@@ -23,6 +24,8 @@ ru:
     links:
       sign_in: "Войти"
       sign_up: "Зарегистрироваться"
+      signed_as: "Вы вошли как"
+      edit_profile: "Профиль"
       forgot_your_password?: "Забыли пароль?"
       did_not_receive_confirmation_instructions?: "Не получили письмо с инструкциями?"
       did_not_receive_unlock_instructions?: "Не получили инструкции разблокировки?"
