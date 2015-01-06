@@ -24,8 +24,16 @@
     </h3>
 
     <ul class="nav nav-pills nav-stacked">
-      <!-- "<li><a href=\"#\">#{b.book.name}<span class=\"badge\">#{b.author.first_name.first}. #{b.author.last_name}</a></li>" -->
-      <li><a href="#">Потрясающий Бетонный Берет<span class="badge">D. Weimann</a></li><li><a href="#">Грубый Резиновый Ботинок<span class="badge">F. Mitchell</a></li><li><a href="#">Интеллектуальный Бетонный Кулон<span class="badge">B. Spencer</a></li><li><a href="#">Фантастический Гранитный Ремень<span class="badge">M. Schulist</a></li><li><a href="#">Потрясающий Стальной Стол<span class="badge">U. Robel</a></li><li><a href="#">Маленький Гранитный Компьютер<span class="badge">K. Ziemann</a></li><li><a href="#">Практчиный Гранитный Компьютер<span class="badge">G. Fisher</a></li><li><a href="#">Грубый Пластиковый Автомобиль<span class="badge">T. Zemlak</a></li><li><a href="#">Фантастический Резиновый Ремень<span class="badge">K. Lakin</a></li><li><a href="#">Потрясающий Пластиковый Компьютер<span class="badge">G. Hoppe</a></li>
+      <% @books.each do |b| %>
+        <li>
+          <%= link_to book_path(b) do %>
+            <%= b.name %>
+            <span class="badge">
+              <%= b.author_short %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
 
   </div>
@@ -37,8 +45,18 @@
     </h3>
 
     <ul class="nav nav-pills nav-stacked">
-      <!-- "<li><a href=\"#\">#{b.book.name}<span class=\"badge\">#{b.user.first_name.first}. #{b.user.last_name} @ #{b.finish_reading.time.to_formatted_s(:short)}</a></li>" -->
-      <li><a href="#">Практчиный Гранитный Берет<span class="badge">T. Herman @ 23 Dec 02:25</a></li><li><a href="#">Невероятный Пластиковый Стул<span class="badge">K. Friesen @ 24 Dec 03:29</a></li><li><a href="#">Эргономичный Пластиковый Стул<span class="badge">T. Cartwright @ 24 Dec 18:39</a></li><li><a href="#">Эргономичный Хлопковый Стул<span class="badge">F. Bins @ 29 Dec 14:42</a></li><li><a href="#">Маленький Резиновый Свитер<span class="badge">R. Kreiger @ 28 Dec 23:05</a></li><li><a href="#">Маленький Стальной Ремень<span class="badge">T. Harris @ 27 Dec 11:04</a></li><li><a href="#">Маленький Пластиковый Автомобиль<span class="badge">C. Rogahn @ 28 Dec 23:08</a></li><li><a href="#">Грубый Хлопковый Автомобиль<span class="badge">A. Greenholt @ 19 Dec 08:33</a></li><li><a href="#">Грубый Бетонный Компьютер<span class="badge">J. Sawayn @ 21 Dec 22:08</a></li><li><a href="#">Фантастический Бетонный Стол<span class="badge">C. Bergstrom @ 26 Dec 18:13</a></li>
+      <% @interests.each do |i| %>
+        <li>
+          <%= link_to interest_path(i) do %>
+            <%= i.book.name %>
+            <span class="badge">
+              <%= i.user.short_name %>
+              @
+              <%= i.finish_reading.time.to_formatted_s(:short) %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
 
   </div>
@@ -50,8 +68,18 @@
     </h3>
 
     <ul class="nav nav-pills nav-stacked">
-      <!-- "<li><a href=\"#\">#{b.content.split.take(5).join(" ")}&hellip;<span class=\"badge\">#{b.user.first_name.first}. #{b.user.last_name} @ #{b.interest.finish_reading.time.to_formatted_s(:short)}</a></li> -->
-      <li><a href="#">Neque quam error. Nihil praesentium&hellip;<span class="badge">M. Langosh @ 27 Dec 22:11</a></li><li><a href="#">Dolore velit aut. Facilis minus&hellip;<span class="badge">M. Braun @ 21 Dec 01:35</a></li><li><a href="#">Nemo aspernatur et quam tenetur&hellip;<span class="badge">M. Reynolds @ 26 Dec 18:30</a></li><li><a href="#">Est nemo enim consequatur architecto&hellip;<span class="badge">N. Cronin @ 29 Dec 21:53</a></li><li><a href="#">Et voluptatem excepturi dolores eum&hellip;<span class="badge">L. Mertz @ 22 Dec 12:43</a></li><li><a href="#">Corporis sit soluta sunt aut&hellip;<span class="badge">K. Lueilwitz @ 28 Dec 18:51</a></li><li><a href="#">Cupiditate quaerat repellat amet sint&hellip;<span class="badge">H. Bergstrom @ 24 Dec 22:01</a></li><li><a href="#">Aliquam earum sunt deserunt. Occaecati&hellip;<span class="badge">D. Bayer @ 28 Dec 15:37</a></li><li><a href="#">Tempora corrupti ut maxime. Similique&hellip;<span class="badge">A. Okuneva @ 27 Dec 22:31</a></li><li><a href="#">Vel eos fugit qui dolores&hellip;<span class="badge">E. Fay @ 27 Dec 00:04</a></li>
+      <% @comments.each do |c| %>
+        <li>
+          <%= link_to interest_path(c.interest, :anchor => c) do %>
+            <%= c.content.split.take(5).join(" ") %>…
+            <span class="badge">
+              <%= c.user.short_name %>
+              @
+              <%= c.created_at.time.to_formatted_s(:short) %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
 
   </div>
