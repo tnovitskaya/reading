@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
 gem 'enumerize'
 gem 'bootstrap-sass'
+gem 'bootstrap-select-rails'
 gem 'devise-i18n'
 gem 'russian', '~> 0.6.0'
 
