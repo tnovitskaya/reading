@@ -36,8 +36,12 @@
           <% end %>
         </li>
       <% end %>
+      <li>
+        <%= link_to books_path do %>
+          <%= I18n.t('book.all') %>
+        <% end %>
+      </li>
     </ul>
-
   </div>
 
   <div class="col-md-4">
