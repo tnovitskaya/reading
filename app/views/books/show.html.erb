@@ -58,10 +58,14 @@
       </dd>
     </dl>
 
-    <p>
-      <%= link_to I18n.t('book.edit_action'), edit_book_path(@book),  class: "btn btn-default" %>
-      <%= button_to I18n.t('book.drop_action'), book_path(@book), data: { confirm: I18n.t('book.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
-    </p>
+    <% if user_signed_in? %>
+      <p>
+        <%= link_to I18n.t('book.edit_action'), edit_book_path(@book),  class: "btn btn-default" %>
+        <%= button_to I18n.t('book.drop_action'), book_path(@book), data: { confirm: I18n.t('book.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
+      </p>
+    <% else %>
+      <%= link_to I18n.t('book.sign_in_to_edit'), new_user_session_path, :class => "btn btn-primary" %>
+    <% end %>
 
     <%= link_to I18n.t('book.link_to_index'), books_path %>
   </div>
