@@ -1,36 +1,49 @@
-<%= link_to I18n.t('book.new'), new_book_path, class: 'btn btn-primary' %>
+<% if user_signed_in? %>
+  <%= link_to I18n.t('book.new'), new_book_path, class: 'btn btn-primary' %>
+<% else %>
+  <%= link_to I18n.t('book.sign_in_to_new'), new_user_session_path, :class => "btn btn-primary" %>
+<% end %>
+
+<%= search_form_for @q, :html => {:class => 'form-inline pull-right'} do |f| %>
+  <div class="form-group">
+    <%= f.label :name_cont, :class => "sr-only" %>
+    <%= f.search_field :name_cont, :class => "form-control" %>
+   </div>
+
+  <%= f.submit I18n.t('book.search'), :class => "btn btn-primary" %>
+<% end %>
 
 <table class="table">
 
-	<thead>
-		<tr>
-			<td>
-				<%= Book.human_attribute_name(:name) %>
-			</td>
-			<td>
-				<%= Book.human_attribute_name(:author_short) %>
-			</td>
-			<td>
-				<%= Book.human_attribute_name(:genre) %>
-			</td>
-		</tr>
-	</thead>
+  <thead>
+    <tr>
+      <td>
+        <%= Book.human_attribute_name(:name) %>
+      </td>
+      <td>
+        <%= Book.human_attribute_name(:author_short) %>
+      </td>
+      <td>
+        <%= Book.human_attribute_name(:genre) %>
+      </td>
+    </tr>
+  </thead>
 
-	<tbody>
-		<% @books.each do |b| %>
-			<tr>
-				<td>
-					<%= link_to b.name, book_path(b) %>
-				</td>
-				<td>
-					<%= b.author_short %>
-				</td>
-				<td>
-					<%= b.genre %>
-				</td>
-			</tr>
-		<% end %>
-	</tbody>
+  <tbody>
+    <% @books.each do |b| %>
+      <tr>
+        <td>
+          <%= link_to b.name, book_path(b) %>
+        </td>
+        <td>
+          <%= b.author_short %>
+        </td>
+        <td>
+          <%= b.genre %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 
 </table>
 
