@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'interests/new'
+
   devise_for :users
   get 'welcome/index'
 
