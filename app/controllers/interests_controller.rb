@@ -3,11 +3,6 @@ class InterestsController < ApplicationController
   before_action :find_interest, only: [:show, :edit, :update, :destroy]
   before_action :correct_user,  only: [:edit, :update,:destroy]
 
-  def index
-    @q = Interest.ransack(params[:q])
-    @interests = @q.result.paginate(:page => params[:page], :per_page => 3)
-  end
-
   def show
   end
 
