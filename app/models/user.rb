@@ -12,4 +12,7 @@ class User < ActiveRecord::Base
     "#{self.first_name.first}. #{self.last_name}"
   end
 
+  def full_name
+    [self.first_name, self.last_name].join(' ')
+  end
 end
