@@ -26,6 +26,7 @@ ru:
       sign_up: "Зарегистрироваться"
       signed_as: "Вы вошли как"
       edit_profile: "Профиль"
+      interests: "Интересы"
       forgot_your_password?: "Забыли пароль?"
       did_not_receive_confirmation_instructions?: "Не получили письмо с инструкциями?"
       did_not_receive_unlock_instructions?: "Не получили инструкции разблокировки?"
@@ -50,6 +51,13 @@ ru:
         publisher: "Издательство"
         publisher_id: "Издательство"
         page_count: "Количество страниц"
+      interest:
+        book: "Название книги"
+        book_id: "Книга"
+        user_id: "Пользователь"
+        review: "Рецензия"
+        start_reading: "Начало чтения"
+        finish_reading: "Окончание чтения"
 
   index:
     welcome_h1: "Добро пожаловать на Reading"
@@ -78,3 +86,25 @@ ru:
     sign_in_to_new: "Войдите, чтобы добавлять книги"
     sign_in_to_edit: "Войдите, чтобы редактировать книги"
     search: "Искать"
+
+  interest:
+    new: "Добавить интерес"
+    new_action: "Добавить"
+    select_books_title: "Укажите книгу"
+    new_book: "Новая книга?"
+    show: "Информация об интересе"
+    show_action: "Просмотреть"
+    drop_action: "Удалить"
+    drop_confirm: "Уверены, что хотите удалить интерес безвозвратно?"
+    link_to_index: "Вернуться к интересам"
+    edit: "Редактировать интерес"
+    edit_action: "Редактировать"
+    all: "Все интересы"
+    comments: "Комментарии"
+    new_comment: "Добавить комментарий?"
+    sign_in_to_new: "Войдите, чтобы добавлять интересы"
+    sign_in_to_edit: "Войдите, чтобы редактировать интересы"
+    search: "Искать"
+
+  user:
+    interests: "Интересы"
