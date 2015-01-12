@@ -58,7 +58,7 @@
             <span class="badge">
               <%= i.user.short_name %>
               @
-              <%= i.finish_reading.time.to_formatted_s(:short) %>
+              <%= i.created_at.time.to_formatted_s(:short) %>
             </span>
           <% end %>
         </li>
