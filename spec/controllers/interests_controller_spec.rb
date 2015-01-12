@@ -10,18 +10,6 @@ RSpec.describe InterestsController, :type => :controller do
       sign_in user
     end
 
-    describe "GET #index" do
-      it "render :index view" do
-        get :index
-        expect(response).to render_template :index
-      end
-
-      it "assigns the requested interest to subject" do
-        get :index
-        expect(assigns(:interests)).to eq([subject])
-      end
-    end
-
     describe "GET #show" do
       it "assigns the requested interest to subject" do
         get :show, id: subject
