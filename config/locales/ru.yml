@@ -58,6 +58,9 @@ ru:
         review: "Рецензия"
         start_reading: "Начало чтения"
         finish_reading: "Окончание чтения"
+      publisher:
+        name: "Название"
+        location: "Страна"
 
   index:
     welcome_h1: "Добро пожаловать на Reading"
@@ -108,3 +111,16 @@ ru:
 
   user:
     interests: "Интересы"
+
+  publisher:
+    new: "Добавить издательство"
+    new_action: "Добавить"
+    show: "Информация об издательстве"
+    show_action: "Просмотреть"
+    drop_action: "Удалить"
+    drop_confirm: "Уверены, что хотите удалить издательство безвозвратно?"
+    edit: "Редактировать издательство"
+    edit_action: "Редактировать"
+    sign_in_to_new: "Войдите, чтобы добавлять издательства"
+    link_to_index: "Вернуться к общему списку издательств"
+    search: "Искать"
