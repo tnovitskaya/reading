@@ -20,9 +20,11 @@
         <%= link_to I18n.t('publisher.edit_action'), edit_publisher_path(@publisher),  class: "btn btn-default" %>
         <%= button_to I18n.t('publisher.drop_action'), publisher_path(@publisher), data: { confirm: I18n.t('publisher.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
       </p>
-    <% else %>
-      <%= link_to I18n.t('publisher.sign_in_to_edit'), new_user_session_path, :class => "btn btn-primary" %>
-    <% end %>
+    <p>
+      <% else %>
+        <%= link_to I18n.t('publisher.sign_in_to_edit'), new_user_session_path, :class => "btn btn-primary" %>
+      <% end %>
+    </p>
 
     <%= link_to I18n.t('publisher.link_to_index'), publishers_path %>
   </div>
