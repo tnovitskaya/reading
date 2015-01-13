@@ -45,10 +45,10 @@
         <%= I18n.t('book.interests') %>
       </dt>
       <dd>
-        <% @book.interests.each do |i| %>
-          <%= link_to interest_path(i) do %>
-            <%= i.author.first_name %>
-            <%= i.author.last_name %>
+        <% @book.interests.each do |interest| %>
+          <%= link_to interest_path(interest) do %>
+            <%= interest.user.first_name %>
+            <%= interest.user.last_name %>
           <% end %>
           <br />
         <% end %>
@@ -63,9 +63,11 @@
         <%= link_to I18n.t('book.edit_action'), edit_book_path(@book),  class: "btn btn-default" %>
         <%= button_to I18n.t('book.drop_action'), book_path(@book), data: { confirm: I18n.t('book.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
       </p>
-    <% else %>
-      <%= link_to I18n.t('book.sign_in_to_edit'), new_user_session_path, :class => "btn btn-primary" %>
-    <% end %>
+    <p>  
+      <% else %>
+        <%= link_to I18n.t('book.sign_in_to_edit'), new_user_session_path, :class => "btn btn-primary" %>
+      <% end %>
+    </p>
 
     <%= link_to I18n.t('book.link_to_index'), books_path %>
   </div>
