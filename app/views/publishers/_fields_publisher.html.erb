@@ -5,5 +5,5 @@
 
 <div class="form-group">
   <%= f.label :location %>
-  <%= f.text_field :location, class: "form-control", placeholder: "", required: true %>
+  <%= f.country_select :location, {}, {class: "form-control selectpicker", :"data-live-search" => "true"} %>
 </div>
