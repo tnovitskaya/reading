@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-5 col-md-offset-3">
+    <h2><%= I18n.t('publisher.show') %></h2>
+    <dl class="dl-horizontal">
+      <dt>
+        <%= Publisher.human_attribute_name(:name) %>
+      </dt>
+      <dd>
+        <%= @publisher.name %>
+      </dd>
+      <dt>
+        <%= Publisher.human_attribute_name(:location) %>
+      </dt>
+      <dd>
+        <%= @publisher.location %>
+      </dd>
+    </dl>
+      <% if user_signed_in? %>
+      <p>
+        <%= link_to I18n.t('publisher.edit_action'), edit_publisher_path(@publisher),  class: "btn btn-default" %>
+        <%= button_to I18n.t('publisher.drop_action'), publisher_path(@publisher), data: { confirm: I18n.t('publisher.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
+      </p>
+    <p>
+      <% else %>
+        <%= link_to I18n.t('publisher.sign_in_to_edit'), new_user_session_path, :class => "btn btn-primary" %>
+      <% end %>
+    </p>
+
+    <%= link_to I18n.t('publisher.link_to_index'), publishers_path %>
+  </div>
+</div>
