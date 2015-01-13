@@ -54,7 +54,7 @@
       <% @interest.comments.each do |comment| %>
         <li class="comment">
           <div class="comment-info">
-            <a href="/users/<%= comment.user.id %>"><%= comment.user.full_name %></a>
+            <%= link_to comment.user.full_name, user_path(comment.user) %>
             <div class="comment-date"><%= comment.created_at.strftime('%e %B %Y в %H:%M') %></div>
           </div>
           <div class="comment-content">
