@@ -43,7 +43,7 @@ RSpec.describe BooksController, :type => :controller do
 
       it "renders the :new view" do
         get :new
-        expect(response).to render_template "new-edit-form"
+        expect(response).to render_template "new"
       end
     end
 
@@ -70,7 +70,7 @@ RSpec.describe BooksController, :type => :controller do
 
       it "renders the :edit view" do
         get :edit, id: subject
-        expect(response).to render_template "new-edit-form"
+        expect(response).to render_template "edit"
       end
     end
 
@@ -91,7 +91,7 @@ RSpec.describe BooksController, :type => :controller do
 
     describe "DELETE #destroy" do
       before(:each) { @book = FactoryGirl.create :book }
-      
+
       it "deletes the book" do
         expect {
           delete :destroy, id: @book
