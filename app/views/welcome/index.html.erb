@@ -1,4 +1,93 @@
-<h1>Hi, everybody!</h1>
-<h2>This is Reading</h2>
-<h2>by Andrew Lelechenko and Tatyana Novitskaya</h2>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="jumbotron">
+
+  <h1>
+    <%= I18n.t('index.welcome_h1') %>
+  </h1>
+
+  <p>
+    <%= I18n.t('index.welcome_p') %>
+  </p>
+
+  <% if !user_signed_in? %>
+    <p>
+      <%= link_to I18n.t('forms.links.sign_up'), new_user_registration_path, :class => "btn btn-primary btn-lg" %>
+      <%= link_to I18n.t('forms.links.sign_in'), new_user_session_path, :class => "btn btn-primary btn-lg" %>
+    </p>
+  <% end %>
+
+</div>
+
+<div class="row">
+
+  <div class="col-md-4">
+
+    <h3>
+      <%= I18n.t('index.new_books') %>
+    </h3>
+
+    <ul class="nav nav-pills nav-stacked">
+      <% @books.each do |b| %>
+        <li>
+          <%= link_to book_path(b) do %>
+            <%= b.name %>
+            <span class="badge">
+              <%= b.author_short %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to books_path do %>
+          <%= I18n.t('book.all') %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-4">
+
+    <h3>
+      <%= I18n.t('index.new_interests') %>
+    </h3>
+
+    <ul class="nav nav-pills nav-stacked">
+      <% @interests.each do |i| %>
+        <li>
+          <%= link_to interest_path(i) do %>
+            <%= i.book.name %>
+            <span class="badge">
+              <%= i.user.short_name %>
+              @
+              <%= i.created_at.time.to_formatted_s(:short) %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <h3>
+      <%= I18n.t('index.new_comments') %>
+    </h3>
+
+    <ul class="nav nav-pills nav-stacked">
+      <% @comments.each do |c| %>
+        <li>
+          <%= link_to interest_path(c.interest, :anchor => c) do %>
+            <%= c.content.split.take(5).join(" ") %>…
+            <span class="badge">
+              <%= c.user.short_name %>
+              @
+              <%= c.created_at.time.to_formatted_s(:short) %>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>
+
+</div>

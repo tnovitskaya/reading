@@ -1,0 +1,55 @@
+<% provide(:title, @user.full_name) %>
+<div class="row">
+<% if user_signed_in? && @user == current_user %>
+  <%= link_to I18n.t('interest.new'), new_interest_path, class: 'btn btn-primary' %>
+<% end %>
+
+<table class="table">
+  <% if @user.interests.any? %>
+    <h3><%= I18n.t('user.interests') %> (<%= @user.interests.count %>)</h3>
+    <thead>
+      <tr>
+        <th width="30%">
+          <%= Interest.human_attribute_name(:book) %>
+        </th>
+        <th>
+          <%= Interest.human_attribute_name(:review) %>
+        </th>
+        <th width="13%">
+          <%= Interest.human_attribute_name(:start_reading) %>
+        </th>
+        <th width="13%">
+          <%= Interest.human_attribute_name(:finish_reading) %>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @interests.each do |interest| %>
+        <tr>
+          <td>
+            <%= link_to interest.book.name, interest_path(interest) %>
+          </td>
+          <td>
+            <%= interest.review %>
+          </td>
+          <td>
+            <% if interest.start_reading? %>
+              <%= interest.start_reading.strftime('%e %B %Y') %>
+            <% end %>
+          </td>
+          <td>
+            <% if interest.finish_reading? %>
+              <%= interest.finish_reading.strftime('%e %B %Y') %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+
+</table>
+
+</div>
+
+<%= will_paginate @interests, renderer: BootstrapPagination::Rails %>

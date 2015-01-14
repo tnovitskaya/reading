@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <h2><%= I18n.t('book.show') %></h2>
+
+    <dl class="dl-horizontal">
+      <dt>
+        <%= Book.human_attribute_name(:name) %>
+      </dt>
+      <dd>
+        <%= @book.name %>
+      </dd>
+      <dt>
+        <%= Book.human_attribute_name(:authors) %>
+      </dt>
+      <dd>
+        <% @book.authors.each do |a| %>
+          <%= link_to author_path(a) do %>
+            <%= a.first_name %>
+            <%= a.last_name %>
+          <% end %>
+          <br />
+        <% end %>
+      </dd>
+      <dt>
+        <%= Book.human_attribute_name(:genre) %>
+      </dt>
+      <dd>
+        <%= @book.genre %>
+      </dd>
+      <dt>
+        <%= Book.human_attribute_name(:publisher) %>
+      </dt>
+      <dd>
+        <%= link_to publisher_path(@book.publisher) do %>
+          <%= @book.publisher.name %>
+        <% end %>
+      </dd>
+      <dt>
+        <%= Book.human_attribute_name(:page_count) %>
+      </dt>
+      <dd>
+        <%= @book.page_count %>
+      </dd>
+      <dt>
+        <%= I18n.t('book.interests') %>
+      </dt>
+      <dd>
+        <% @book.interests.each do |interest| %>
+          <%= link_to interest_path(interest) do %>
+            <%= interest.user.first_name %>
+            <%= interest.user.last_name %>
+          <% end %>
+          <br />
+        <% end %>
+        <%= link_to new_interest_path do %>
+          <%=  I18n.t('book.new_interest') %>
+        <% end %>
+      </dd>
+    </dl>
+
+    <% if user_signed_in? %>
+      <p>
+        <%= link_to I18n.t('book.edit_action'), edit_book_path(@book),  class: "btn btn-default" %>
+        <%= button_to I18n.t('book.drop_action'), book_path(@book), data: { confirm: I18n.t('book.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
+      </p>
+    <p>  
+      <% else %>
+        <%= link_to I18n.t('book.sign_in_to_edit'), new_user_session_path, :class => "btn btn-primary" %>
+      <% end %>
+    </p>
+
+    <%= link_to I18n.t('book.link_to_index'), books_path %>
+  </div>
+</div>

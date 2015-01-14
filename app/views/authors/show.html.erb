@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <h2><%= I18n.t('author.show') %></h2>
+    <h3>
+      <%= @author.first_name %>
+      <%= @author.last_name %>
+    </h3>
+
+    <ul>
+      <% @author.books.each do |b| %>
+        <li>
+          <%= link_to b.name, book_path(b) %>
+        </li>
+      <% end %>
+    </ul>
+
+    <% if user_signed_in? %>
+      <p>
+        <%= link_to I18n.t('author.edit_action'), edit_author_path(@author),  class: "btn btn-default" %>
+        <%= button_to I18n.t('author.drop_action'), author_path(@author), data: { confirm: I18n.t('author.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
+      </p>
+    <p>
+      <% else %>
+        <%= link_to I18n.t('author.sign_in_to_edit'), new_user_session_path, :class => "btn btn-primary" %>
+      <% end %>
+    </p>
+
+    <%= link_to I18n.t('author.link_to_index'), authors_path %>
+  </div>
+</div>

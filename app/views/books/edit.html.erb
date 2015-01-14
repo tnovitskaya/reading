@@ -1,0 +1,7 @@
+<% content_for :h2 do %>
+	<%= I18n.t("book.edit") %>
+<% end %>
+<% content_for :submit do %>
+	<%= I18n.t("book.edit_action") %>
+<% end %>
+<%= render template: "books/new-edit-form" %>

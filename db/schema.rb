@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141225214017) do
+ActiveRecord::Schema.define(version: 20150112080717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,10 +29,12 @@ ActiveRecord::Schema.define(version: 20141225214017) do
   end
 
   create_table "books", force: true do |t|
-    t.integer "publisher_id"
-    t.string  "name"
-    t.string  "genre"
-    t.integer "page_count"
+    t.integer  "publisher_id"
+    t.string   "name"
+    t.string   "genre"
+    t.integer  "page_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "comments", force: true do |t|
@@ -53,10 +55,14 @@ ActiveRecord::Schema.define(version: 20141225214017) do
     t.datetime "updated_at"
   end
 
+  add_index "interests", ["user_id", "created_at"], name: "index_interests_on_user_id_and_created_at", using: :btree
+
   create_table "publishers", force: true do |t|
     t.string "name"
     t.text   "location"
   end
+
+  add_index "publishers", ["name"], name: "index_publishers_on_name", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -69,16 +75,13 @@ ActiveRecord::Schema.define(version: 20141225214017) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "date_of_birth"
     t.string   "phone"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,0 +1,41 @@
+<% if user_signed_in? %>
+  <%= link_to I18n.t('publisher.new'), new_publisher_path, class: 'btn btn-primary' %>
+<% else %>
+  <%= link_to I18n.t('publisher.sign_in_to_new'), new_user_session_path, :class => "btn btn-primary" %>
+<% end %>
+
+<%= search_form_for @q, :html => {:class => 'form-inline pull-right'} do |f| %>
+  <div class="form-group">
+    <%= f.label :name_cont, :class => "sr-only" %>
+    <%= f.search_field :name_cont, :class => "form-control" %>
+   </div>
+
+  <%= f.submit I18n.t('publisher.search'), :class => "btn btn-primary" %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <%= Publisher.human_attribute_name(:name) %>
+      </th>
+      <th width="40%">
+        <%= Publisher.human_attribute_name(:location) %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @publishers.each do |b| %>
+      <tr>
+        <td>
+          <%= link_to b.name, publisher_path(b) %>
+        </td>
+        <td>
+          <%= b.location %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @publishers, renderer: BootstrapPagination::Rails %>

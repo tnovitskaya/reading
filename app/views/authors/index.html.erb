@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+  <%= link_to I18n.t('author.new'), new_author_path, class: 'btn btn-primary' %>
+<% else %>
+  <%= link_to I18n.t('author.sign_in_to_new'), new_user_session_path, :class => "btn btn-primary" %>
+<% end %>
+
+<%= search_form_for @q, :html => {:class => 'form-inline pull-right'} do |f| %>
+  <div class="form-group">
+    <%= f.label :name_cont, :class => "sr-only" %>
+    <%= f.search_field :first_name_or_last_name_cont, :class => "form-control" %>
+   </div>
+
+  <%= f.submit I18n.t('author.search'), :class => "btn btn-primary" %>
+<% end %>
+
+<ul>
+  <% @authors.each do |a| %>
+    <li>
+      <%= link_to author_path(a) do %>
+        <%= a.first_name %>
+        <%= a.last_name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @authors, renderer: BootstrapPagination::Rails %>
