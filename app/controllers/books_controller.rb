@@ -9,8 +9,6 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @method = "new"
-    render "new-edit-form"
   end
 
   def create
@@ -40,8 +38,6 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @method = "edit"
-    render "new-edit-form"
   end
 
   def show
