@@ -1,0 +1,7 @@
+<% content_for :h2 do %>
+  <%= I18n.t("author.new") %>
+<% end %>
+<% content_for :submit do %>
+  <%= I18n.t("author.new_action") %>
+<% end %>
+<%= render template: "authors/new-edit-form" %>
