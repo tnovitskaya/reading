@@ -8,13 +8,16 @@ class InterestsController < ApplicationController
 
   def new
     @interest = Interest.new
+    if(params[:book_id])
+      @interest.book = Book.find(params[:book_id])
+    end
   end
 
   def create
     @interest = current_user.interests.build(interest_params)
     if @interest.save
       redirect_to current_user
-    else      
+    else
       render 'new'
     end
   end
