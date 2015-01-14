@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h2><%= I18n.t("comment.edit") %></h2>
+
+      <%= form_for(@comment) do |f| %>
+
+        <%= render 'fields', f: f %>
+
+        <div class="form-group">
+          <%= f.submit I18n.t("comment.edit_action"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+
+      <%= link_to I18n.t('comment.link_to_index'), interest_path(@comment.interest) %>
+    </div>
+  </div>
+<% end %>
+
