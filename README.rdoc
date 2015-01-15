@@ -1,15 +1,10 @@
-Проект Reading - cообщество любителей провести вечер за чтением книги.
+== reading
 
-Зарегистрированный пользователь имеет возможность добавлять интересы, книги, авторов, издательства, комментарии. При добавлении интересов он может выбрать книгу из уже имеющихся на сайте или добавить новую.
-При добавлении книги пользователь может выбрать/добавить автора, издательство книги.
-К своему интересу пользователь может добавить рецензию.
-Есть возможность добавления комментариев к рецензиям других пользователей.
-Реализована система статистики по количеству добавленных книг и комментариев.
-На странице интересов пользователя отображаются его уровни/достижения.
+Our project is a social reading platform. Users can freely add and classify books, organize them into collections and reading lists, write reviews and flood in comments. We track their activity, providing relevant interactive graphics. On the later stages gamification elements may be added.
 
-Схему базы данных можно найти в db-scheme.png.
+Database scheme can be found in db-scheme.png.
 
 Master branch: https://reading-master.herokuapp.com
 Dev branch: https://reading-dev.herokuapp.com
 
-Команда: Андрей Лелеченко и Татьяна Новицкая.
+Team: Andrew Lelechenko and Tatiana Novitskaya.

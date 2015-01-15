@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-5 col-md-offset-4">
     <h2><%= I18n.t('interest.show') %></h2>
 
     <dl class="dl-horizontal">
@@ -7,9 +7,7 @@
         <%= Interest.human_attribute_name(:book) %>
       </dt>
       <dd>
-        <%= link_to book_path(@interest.book) do %>
-          <%= @interest.book.name %>
-        <% end %>
+        <%= @interest.book.name %>
       </dd>
       <dt>
         <%= Interest.human_attribute_name(:review) %>
@@ -70,18 +68,10 @@
     </ul>
 
     <p>
-      <%= link_to new_interest_comment_path(@interest) do %>
-        <%=  I18n.t('interest.new_comment') %>
-      <% end %>
+        <%= link_to new_interest_comment_path(@interest) do %>
+          <%=  I18n.t('interest.new_comment') %>
+        <% end %>
     </p>
-
-    <% if @interest.comments.length > 0 %>
-      <%= pie_chart @interest.comments.joins(:user).group("users.last_name").count %>
-    <% else %>
-      <p>
-        <%= I18n.t('interest.no_comments') %>
-      </p>
-    <% end %>
 
   </div>
 </div>
