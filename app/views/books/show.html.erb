@@ -27,14 +27,16 @@
       <dd>
         <%= @book.genre %>
       </dd>
-      <dt>
-        <%= Book.human_attribute_name(:publisher) %>
-      </dt>
-      <dd>
-        <%= link_to publisher_path(@book.publisher) do %>
-          <%= @book.publisher.name %>
-        <% end %>
-      </dd>
+      <% if @book.publisher %>
+        <dt>
+          <%= Book.human_attribute_name(:publisher) %>
+        </dt>
+        <dd>
+          <%= link_to publisher_path(@book.publisher) do %>
+            <%= @book.publisher.name %>
+          <% end %>
+        </dd>
+      <% end %>
       <dt>
         <%= Book.human_attribute_name(:page_count) %>
       </dt>
