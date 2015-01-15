@@ -121,6 +121,12 @@ ru:
 
   user:
     interests: "Интересы"
+    levels: "Уровни"
+    achievements: "Достижения"
+    achievements_help: "По достижению некоторых комбинаций уровней вам засчитываются достижения. Откройте их все!"
+    librarian_level: "Уровень библиотекаря"
+    reader_level: "Уровень читателя"
+    commentator_level: "Уровень комментатора"
 
   publisher:
     new: "Добавить издательство"
