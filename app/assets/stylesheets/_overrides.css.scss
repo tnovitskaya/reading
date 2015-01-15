@@ -50,3 +50,21 @@ body {
     font-size: 80%;
   }
 }
+
+.star {
+  font-size: 300%;
+  color: #ffd700;
+  text-shadow: 2px 2px 2px red;
+  &:hover {
+    color: #ffb700;
+  }
+}
+
+.achievement {
+  font-size: 500%;
+  color: #009B48;
+  text-shadow: 3px 3px 3px #FF7900;
+  &:hover {
+    color: #009E60;
+  }
+}
