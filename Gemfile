@@ -37,6 +37,9 @@ gem 'country_select', github: 'stefanpenner/country_select'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem "chartkick"
+gem "groupdate"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

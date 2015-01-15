@@ -4,9 +4,9 @@
   <%= link_to I18n.t('interest.new'), new_interest_path, class: 'btn btn-primary' %>
 <% end %>
 
-<table class="table">
-  <% if @user.interests.any? %>
-    <h3><%= I18n.t('user.interests') %> (<%= @user.interests.count %>)</h3>
+<% if @user.interests.any? %>
+  <h3><%= I18n.t('user.interests') %> (<%= @user.interests.count %>)</h3>
+  <table class="table">
     <thead>
       <tr>
         <th width="30%">
@@ -28,10 +28,10 @@
       <% @interests.each do |interest| %>
         <tr>
           <td>
-            <%= link_to interest.book.name, interest_path(interest) %>
+            <%= link_to interest.book.name, book_path(interest.book) %>
           </td>
           <td>
-            <%= interest.review %>
+            <%= link_to interest.review, interest_path(interest) %>
           </td>
           <td>
             <% if interest.start_reading? %>
@@ -46,10 +46,58 @@
         </tr>
       <% end %>
     </tbody>
-  <% end %>
-
-</table>
+  </table>
+<% end %>
 
 </div>
 
 <%= will_paginate @interests, renderer: BootstrapPagination::Rails %>
+
+<div class="row">
+  <h3>
+    <%= I18n.t('user.levels') %>
+  </h3>
+
+  <div class="col-md-4">
+    <h4>
+      <%= I18n.t('user.librarian_level') %>
+    </h4>
+    <% @user.librarian_level.times do %>
+      <i class="glyphicon glyphicon-star star"></i>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <h4>
+      <%= I18n.t('user.reader_level') %>
+    </h4>
+    <% @user.reader_level.times do %>
+      <i class="glyphicon glyphicon-star star"></i>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <h4>
+      <%= I18n.t('user.commentator_level') %>
+    </h4>
+    <% @user.commentator_level.times do %>
+      <i class="glyphicon glyphicon-star star"></i>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <h3>
+    <%= I18n.t('user.achievements') %>
+  </h3>
+  <p>
+    <%= I18n.t('user.achievements_help') %>
+  </p>
+
+  <div class="col-md-12">
+    <% @user.achievements.each do |a| %>
+      <i class="achievement glyphicon glyphicon-<%= a[:icon] %> achievement" title="<%= a[:name] %>" alt="<%= a[:name] %>"></i>
+    <% end %>
+  </div>
+</div>
+
