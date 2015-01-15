@@ -41,6 +41,12 @@ class BooksController < ApplicationController
   end
 
   def show
+    @timeline = @book.interests.map do |i|
+      username = i.user.short_name
+      from = i.start_reading.to_s
+      to = i.finish_reading.to_s
+      [username, from, to]
+    end
   end
 
   def destroy
