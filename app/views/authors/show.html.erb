@@ -16,8 +16,12 @@
 
     <% if user_signed_in? %>
       <p>
-        <%= link_to I18n.t('author.edit_action'), edit_author_path(@author),  class: "btn btn-default" %>
-        <%= button_to I18n.t('author.drop_action'), author_path(@author), data: { confirm: I18n.t('author.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
+        <% if can? :update, @author %>
+          <%= link_to I18n.t('author.edit_action'), edit_author_path(@author),  class: "btn btn-default" %>
+        <% end %>
+        <% if can? :destroy, @author %>
+          <%= button_to I18n.t('author.drop_action'), author_path(@author), data: { confirm: I18n.t('author.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
+        <% end %>
       </p>
     <p>
       <% else %>

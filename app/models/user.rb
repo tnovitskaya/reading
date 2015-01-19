@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :books, through: :interests
   has_many :comments, dependent: :destroy
 
+  extend Enumerize
+  enumerize :role, in: [:user, :admin], default: :user
+
   def short_name
     "#{self.first_name.try(:first)}. #{self.last_name}"
   end

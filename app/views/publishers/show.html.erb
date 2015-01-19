@@ -17,8 +17,12 @@
     </dl>
       <% if user_signed_in? %>
       <p>
-        <%= link_to I18n.t('publisher.edit_action'), edit_publisher_path(@publisher),  class: "btn btn-default" %>
+        <% if can? :update, @publisher %>
+          <%= link_to I18n.t('publisher.edit_action'), edit_publisher_path(@publisher),  class: "btn btn-default" %>
+        <% end %>
+        <% if can? :destroy, @publisher %>
         <%= button_to I18n.t('publisher.drop_action'), publisher_path(@publisher), data: { confirm: I18n.t('publisher.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
+        <% end %>
       </p>
     <p>
       <% else %>

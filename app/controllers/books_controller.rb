@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 
+  load_and_authorize_resource :Book, through: :interests
   before_action :find_book, only: [:show, :edit, :update, :destroy]
 
   def index
