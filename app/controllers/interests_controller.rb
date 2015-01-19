@@ -1,5 +1,6 @@
 class InterestsController < ApplicationController
 
+  load_and_authorize_resource param_method: :interest_params
   before_action :find_interest, only: [:show, :edit, :update, :destroy]
   before_action :correct_user,  only: [:edit, :update,:destroy]
 

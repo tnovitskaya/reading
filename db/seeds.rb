@@ -18,7 +18,7 @@ BookAndAuthorLink.create({book: book1, author: author1, role: :author})
 BookAndAuthorLink.create({book: book2, author: author1, role: :author})
 BookAndAuthorLink.create({book: book1, author: author2, role: :editor})
 
-user1 = User.new({email: "andrew@example.com", first_name: "Andrew", last_name: "Lelechenko", password: "Password", password_confirmation: "Password"})
+user1 = User.new({email: "andrew@example.com", first_name: "Andrew", last_name: "Lelechenko", password: "Password", password_confirmation: "Password", role: :admin})
 user1.save!
 
 user2 = User.new({email: "tatiana@example.com", first_name: "Tatiana", last_name: "Novitskaya", password: "Password", password_confirmation: "Password"})

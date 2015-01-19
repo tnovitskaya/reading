@@ -1,4 +1,6 @@
 class AuthorsController < ApplicationController
+
+  load_and_authorize_resource :Author
   before_action :find_author, only: [:show, :edit, :update, :destroy]
 
   def index

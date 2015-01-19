@@ -37,8 +37,12 @@
 
     <% if user_signed_in? %>
       <p>
-        <%= link_to I18n.t('interest.edit_action'), edit_interest_path(@interest),  class: "btn btn-default" %>
-        <%= button_to I18n.t('interest.drop_action'), interest_path(@interest), data: { confirm: I18n.t('interest.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
+        <% if can? :update, @interest %>
+          <%= link_to I18n.t('interest.edit_action'), edit_interest_path(@interest),  class: "btn btn-default" %>
+        <% end %>
+        <% if can? :destroy, @interest %>
+          <%= button_to I18n.t('interest.drop_action'), interest_path(@interest), data: { confirm: I18n.t('interest.drop_confirm') }, method: :delete, class: "btn btn-danger" %>
+        <% end %>
       </p>
     <p>
       <% else %>
@@ -60,8 +64,12 @@
             <div class="comment-date"><%= comment.created_at.strftime('%e %B %Y в %H:%M') %></div>
           </div>
           <div class="comment-content">
-            <%= button_to I18n.t('comment.drop_action'), comment_path(comment), method: :delete, class: "btn btn-danger pull-right" %>
-            <%= button_to I18n.t('comment.edit_action'), edit_comment_path(comment), method: :get, class: "btn btn-warning pull-right" %>
+            <% if can? :update, comment %>
+              <%= button_to I18n.t('comment.drop_action'), comment_path(comment), method: :delete, class: "btn btn-danger pull-right" %>
+            <% end %>
+            <% if can? :destroy, comment %>
+              <%= button_to I18n.t('comment.edit_action'), edit_comment_path(comment), method: :get, class: "btn btn-warning pull-right" %>
+            <% end %>
             <%= comment.content %>
             <div class="clearfix"></div>
           </div>

@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 
+  load_and_authorize_resource param_method: :comment_params
   before_action :find_comment, only: [:show, :edit, :update, :destroy]
   before_action :correct_user,  only: [:edit, :update, :destroy]
 
