@@ -6,5 +6,6 @@ FactoryGirl.define do
     password { Faker::Internet.password }
     date_of_birth { Faker::Time.between(10000.days.ago, 10000.days.ago) }
     phone { Faker::PhoneNumber.cell_phone }
+    role "user"
   end
 end
