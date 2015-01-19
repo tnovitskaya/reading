@@ -1,5 +1,6 @@
 class PublishersController < ApplicationController
-  
+
+  load_and_authorize_resource param_method: :publisher_params
   before_action :find_publisher, only: [:show, :edit, :update, :destroy]
 
   def index

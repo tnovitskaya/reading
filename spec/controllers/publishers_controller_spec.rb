@@ -10,7 +10,7 @@ RSpec.describe PublishersController, :type => :controller do
   end
 
   context "when user logged in" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryGirl.create(:user, role: :admin) }
     let(:author) { FactoryGirl.create(:author) }
     subject { FactoryGirl.create(:publisher) }
 
@@ -77,7 +77,7 @@ RSpec.describe PublishersController, :type => :controller do
 
       it "renders the :edit view" do
         get :edit, id: subject
-        expect(response).to render_template "edit"
+        expect(response).to  render_template "edit"
       end
     end
 
